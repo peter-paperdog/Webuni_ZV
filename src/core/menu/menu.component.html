@@ -1,0 +1,10 @@
+<mat-toolbar>
+  <img src="http://papirkutya.hu/images/pd-logo.svg" id="logo" alt="Paper Dog Logo"
+       title="Paper Dog (Hungary) Kft.">
+  <div *ngIf="isRegistered()">
+    <span id="username">{{username}}</span>
+    <button mat-icon-button (click)="deregister()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

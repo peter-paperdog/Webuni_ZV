@@ -1,0 +1,25 @@
+.container {
+  padding: 35px;
+  width: 80%;
+  margin: auto;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .textareas {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div.button{
+    display: flex;
+    align-items: center;
+  }
+
+  #languagesBar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}

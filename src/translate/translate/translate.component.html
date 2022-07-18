@@ -1,0 +1,47 @@
+<div class="container">
+  <form [formGroup]="translateForm">
+    <div id="languagesBar">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a language</mat-label>
+        <mat-select formControlName="source">
+          <mat-option [value]="l.code" *ngFor="let l of languages">{{l.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-icon-button (click)="swapLanguages()">
+        <mat-icon>swap_horiz</mat-icon>
+      </button>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a language</mat-label>
+        <mat-select formControlName="target">
+          <mat-option [value]="l.code" *ngFor="let l of languages">{{l.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <p>
+      <button mat-stroked-button [disabled]="translateForm.invalid||isLoading" (click)="detectLanguage()">Language
+        detection
+      </button>
+    </p>
+
+    <div class="textareas">
+      <mat-form-field appearance="fill">
+        <textarea matInput formControlName="q"></textarea>
+        <mat-error *ngIf="translateForm.controls.q.errors?.required">Please enter your text!</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <textarea matInput formControlName="translatedText"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="button">
+      <button id="translate" mat-button color="primary" [disabled]="translateForm.invalid||isLoading"
+              (click)="translate()">
+        Translate
+      </button>
+      <mat-spinner *ngIf="isLoading" diameter="25" strokeWidth="2"></mat-spinner>
+    </div>
+  </form>
+</div>
